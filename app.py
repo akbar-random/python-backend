@@ -94,7 +94,8 @@ def execute_python():
 
         # --- Lint the code using Flake8 ---
         # Ensure flake8 is installed in the environment (via requirements.txt)
-        lint_command = ['flake8', temp_file_path]
+        # Modify the lint_command list to ignore common stylistic codes
+        lint_command = ['flake8', '--ignore=E302,E305,E501,E261,W291,W293', temp_file_path]
         # Usually no timeout needed for linting, but could add one if required
         lint_stdout, lint_stderr, lint_return_code = run_subprocess(lint_command)
 
